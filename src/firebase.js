@@ -5,8 +5,9 @@ import {getStorage} from 'firebase/storage';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyCN-CV1I1yhxVc-xsKi5_nycnWIYLDVfAk",
-  authDomain: "cancer-portal-7e00a.firebaseapp.com",
+  apiKey: "AIzaSyAdF8XrAMkKSW-L6oBRMhfovXLRCEprGOs",
+  // authDomain: "cancer-portal-7e00a.firebaseapp.com",
+  authDomain: "cancer-discussion-portal.vercel.app",
   projectId: "cancer-portal-7e00a",
   storageBucket: "cancer-portal-7e00a.appspot.com",
   messagingSenderId: "37898810712",
