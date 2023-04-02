@@ -1,0 +1,30 @@
+.message {
+    display: flex;
+    align-items: flex-start;
+    padding: 10px;
+    color: white;
+    margin: 20px;
+    background-color: #474b53;
+    border-radius: 10px;
+}
+
+.message:hover {
+    background-color: #454545;
+}
+
+.message__info {
+    margin-left: 20px;
+}
+
+.message__timestamp {
+    color: gray;
+    margin-left: 20px;
+    font-size: x-small;
+}
+.message__info img {
+    width: 500px;
+}
+.delete__message {
+    cursor: pointer;
+    color: red;
+}

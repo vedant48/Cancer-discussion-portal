@@ -1,0 +1,89 @@
+.chat {
+    display: flex;
+    flex-direction: column;
+    flex: 0.75;
+    background-color: #363a3f;
+    height: 100vh;
+}
+
+.chat__input {
+    color: lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 20px;
+    border-top: 1px solid gray;
+    background-color: #474b53;
+}
+
+.chat__input > form > textarea {
+    padding: 15px;
+    background: transparent;
+    border: none;
+    width: 100%;
+    outline-width: 0;
+    color: white;
+    font-size: large;
+    box-sizing: border-box;
+    resize: none;
+    max-height: 200px;
+    min-height: 50px;
+    
+}
+
+.chat__input > form {
+    flex: 1;
+}
+
+.chat__inputButton {
+    display: none;
+}
+
+.chat__inputIcons {
+    align-items: center;
+    display: flex;
+}
+.chat__inputIcons > .MuiSvgIcon-root {
+    padding: 5px;
+}
+
+.chat__messages {
+    overflow: scroll;
+    overflow-x: hidden;
+    flex: 1;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+
+  .chatHeader__usersModel {
+    width: fit-content;
+    position: absolute;
+    right: 250px;
+    top: 70px;
+    max-height: 210px;
+    overflow-y: scroll;
+  }
+  
+  
+
