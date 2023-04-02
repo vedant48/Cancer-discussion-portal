@@ -27,10 +27,10 @@ function ChatHeader({ channelName, handleHideUsers, handleShowUsers }) {
           onDoubleClick={handleShowUsers}
           onClick={handleHideUsers}
         />
-        <div className="chatHeader__search">
+        {/* <div className="chatHeader__search">
           <input placeholder='Search' />
           <SearchIcon />
-        </div>
+        </div> */}
 
         {/* <SendIcon /> */}
         {/* <HelpIcon /> */}
