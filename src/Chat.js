@@ -13,6 +13,8 @@ import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import { v4 } from 'uuid'
 import { Avatar } from '@mui/material'
+import SendIcon from '@mui/icons-material/Send';
+
 
 function Chat() {
   const channelId = useSelector(selectChannelId)
@@ -158,7 +160,7 @@ function Chat() {
             email={messages.user.email}
           />
         ))}
-          <div ref={messagesEndRef} />
+        <div ref={messagesEndRef} />
       </div>
 
       <div className="chat__input">
@@ -184,14 +186,7 @@ function Chat() {
             }}
             placeholder={`Message #${channelName}`}
           /> */}
-          <button
-            disabled={!channelId || (!input && !image)}
-            className='chat__inputButton'
-            type='submit'
-            onClick={sendMessage}
-          >
-            Send Message
-          </button>
+          
         </form>
         <div className="chat__inputIcons">
           <CardGiftcard />
@@ -199,7 +194,14 @@ function Chat() {
             <input style={{ display: 'none' }} type='file' onChange={handleImageChange} />
             <AddCircle />
           </label>
-          <EmojiEmotions />
+          <button
+            disabled={!channelId || (!input && !image)}
+            className='chat__inputButton'
+            type='submit'
+            onClick={sendMessage}
+          >
+            <SendIcon />
+          </button>
         </div>
       </div>
     </div>

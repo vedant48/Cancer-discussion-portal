@@ -7,7 +7,7 @@ import {getStorage} from 'firebase/storage';
 const firebaseConfig = {
   apiKey: "AIzaSyAdF8XrAMkKSW-L6oBRMhfovXLRCEprGOs",
   // authDomain: "cancer-portal-7e00a.firebaseapp.com",
-  authDomain: "cancer-discussion-portal.vercel.app",
+  authDomain: "cancer-portal-7e00a.firebaseapp.com",
   projectId: "cancer-portal-7e00a",
   storageBucket: "cancer-portal-7e00a.appspot.com",
   messagingSenderId: "37898810712",
