@@ -22,7 +22,7 @@ function ChatHeader({ channelName, handleHideUsers, handleShowUsers }) {
 
       <div className="chatHeader__right">
         <NotificationsIcon />
-        <EditLocationIcon />
+        {/* <EditLocationIcon /> */}
         <PeopleAltIcon
           onDoubleClick={handleShowUsers}
           onClick={handleHideUsers}
@@ -32,8 +32,8 @@ function ChatHeader({ channelName, handleHideUsers, handleShowUsers }) {
           <SearchIcon />
         </div>
 
-        <SendIcon />
-        <HelpIcon />
+        {/* <SendIcon /> */}
+        {/* <HelpIcon /> */}
         <IconButton style={{ color: "#808080" }} onClick={() => auth.signOut()}>
           <ExitToAppIcon className="chatHeader__ExitAppIcon" />
         </IconButton>
