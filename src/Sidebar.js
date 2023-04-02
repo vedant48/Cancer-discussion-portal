@@ -20,6 +20,7 @@ function Sidebar() {
 
     const [channels, setChannels] = useState([]);
     const [users, setUsers] = useState([]);
+    const [showChannels, setShowChannels] = useState(true);
 
     useEffect(() => {
         db.collection('channels').onSnapshot(snapshot => {
@@ -52,25 +53,27 @@ function Sidebar() {
     <div className='sidebar'>
         <div className="sidebar__top">
             <h3>Cancer Discussion</h3>
-            <ExpandMoreIcon />
+            <ExpandMoreIcon onClick={() => setShowChannels(!showChannels)} />
         </div>
 
-        <div className="sidebar__channels">
-            <div className="sidebar__channelsHeader">
-                <div className="sidebar__header">
-                    <ExpandMoreIcon />
-                    <h4>Text Channels</h4>
+        {showChannels && (
+            <div className="sidebar__channels">
+                <div className="sidebar__channelsHeader">
+                    <div className="sidebar__header">
+                        <ExpandMoreIcon />
+                        <h4>Text Channels</h4>
+                    </div>
+                    {/* {console.log(user)} */}
+                    {user.uid === "53Dk3X5vmETYIXWmi1s3LnBtx1i2" && <AddIcon onClick ={handleAddChannel} className="sidebar__addChannel" />}
                 </div>
-                {/* {console.log(user)} */}
-                {user.uid === "53Dk3X5vmETYIXWmi1s3LnBtx1i2" && <AddIcon onClick ={handleAddChannel} className="sidebar__addChannel" />}
-            </div>
 
-            <div className="sidebar__channelsList">
-                {channels.map(( id, channel) => (
-                    <SidebarChannel key ={id.id} id={id} channelName={id.channel.channelName} channelType={id.channel.channelType} />
-                ))}
+                <div className="sidebar__channelsList">
+                    {channels.map(( id, channel) => (
+                        <SidebarChannel key ={id.id} id={id} channelName={id.channel.channelName} channelType={id.channel.channelType} />
+                    ))}
+                </div>
             </div>
-        </div>
+        )}
 
         {/* <div className="sidebar__voice">
             <SignalCellularAltIcon
