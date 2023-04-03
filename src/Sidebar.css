@@ -98,6 +98,7 @@
         top: 88px;
         width: 100%;
         max-height: 100vh;
+        z-index: 10;
     }
     .sidebar__voice, .sidebar__profile  {
         border-top: none;
