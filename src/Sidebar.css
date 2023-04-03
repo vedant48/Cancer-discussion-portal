@@ -119,5 +119,11 @@
     .sidebar__profileInfo {
         padding: 5px 0 0 0 ;
     }
+    .sidebar__top h3 {
+        font-size: 1rem;
+    }
+    .sidebar__top {
+        border-bottom: none;
+    }
   }
 
