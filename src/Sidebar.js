@@ -11,6 +11,8 @@ import { Avatar } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { selectUser } from './features/userSlice';
 import db, { auth } from './firebase';
+import "react-tooltip/dist/react-tooltip.css";
+import { Tooltip as ReactTooltip } from "react-tooltip";
 
 
 
@@ -30,7 +32,7 @@ function Sidebar() {
 
     useEffect(() => {
         db.collection('users').onSnapshot(snapshot => {
-            setUsers(snapshot.docs.map(doc => ( doc.data() )));
+            setUsers(snapshot.docs.map(doc => (doc.data())));
         });
     }, [])
 
@@ -41,7 +43,7 @@ function Sidebar() {
         const channelType = prompt('Enter Channel Type');
 
         if (channelName) {
-            db.collection('channels').add({ 
+            db.collection('channels').add({
                 channelName: channelName,
                 channelType: channelType
             })
@@ -49,33 +51,38 @@ function Sidebar() {
     }
     // console.log(channels)
 
-  return (
-    <div className='sidebar'>
-        <div className="sidebar__top">
-            <h3>Cancer Discussion</h3>
-            <ExpandMoreIcon onClick={() => setShowChannels(!showChannels)} />
-        </div>
-
-        {showChannels && (
-            <div className="sidebar__channels">
-                <div className="sidebar__channelsHeader">
-                    <div className="sidebar__header">
-                        <ExpandMoreIcon />
-                        <h4>Text Channels</h4>
-                    </div>
-                    {/* {console.log(user)} */}
-                    {user.uid === "53Dk3X5vmETYIXWmi1s3LnBtx1i2" && <AddIcon onClick ={handleAddChannel} className="sidebar__addChannel" />}
-                </div>
-
-                <div className="sidebar__channelsList">
-                    {channels.map(( id, channel) => (
-                        <SidebarChannel key ={id.id} id={id} channelName={id.channel.channelName} channelType={id.channel.channelType} />
-                    ))}
-                </div>
+    return (
+        <div className='sidebar'>
+            <div className="sidebar__top">
+                <h3>Cancer Discussion</h3>
+                <ExpandMoreIcon id="app-title5" onClick={() => setShowChannels(!showChannels)} />
+                <ReactTooltip
+                    anchorId="app-title5"
+                    place="bottom"
+                    content="Click to expand or collapse channels"
+                />
             </div>
-        )}
 
-        {/* <div className="sidebar__voice">
+            {showChannels && (
+                <div className="sidebar__channels">
+                    <div className="sidebar__channelsHeader">
+                        <div className="sidebar__header">
+                            <ExpandMoreIcon />
+                            <h4>Text Channels</h4>
+                        </div>
+                        {/* {console.log(user)} */}
+                        {user.uid === "53Dk3X5vmETYIXWmi1s3LnBtx1i2" && <AddIcon onClick={handleAddChannel} className="sidebar__addChannel" />}
+                    </div>
+
+                    <div className="sidebar__channelsList">
+                        {channels.map((id, channel) => (
+                            <SidebarChannel key={id.id} id={id} channelName={id.channel.channelName} channelType={id.channel.channelType} />
+                        ))}
+                    </div>
+                </div>
+            )}
+
+            {/* <div className="sidebar__voice">
             <SignalCellularAltIcon
                 className="sidebar__voiceIcon"
                 fontSize="large"
@@ -90,22 +97,22 @@ function Sidebar() {
             </div>
         </div> */}
 
-        <div className="sidebar__profile">
-            <Avatar onClick = {() => auth.signOut()} src={user.photo} />
-            <div className="sidebar__profileInfo">
-                <h3>{user.displayName}</h3>
-                <p>{user.uid.substring(0, 5)}</p>
-                <p>{user.email}</p>
+            <div className="sidebar__profile">
+                <Avatar onClick={() => auth.signOut()} src={user.photo} />
+                <div className="sidebar__profileInfo">
+                    <h3>{user.displayName}</h3>
+                    <p>{user.uid.substring(0, 5)}</p>
+                    <p>{user.email}</p>
+                </div>
+                <div className="sidebar__profileIcons">
+                    {/* <MicIcon /> */}
+                    {/* <Headset /> */}
+                    <SettingsIcon />
+                </div>
             </div>
-            <div className="sidebar__profileIcons">
-                {/* <MicIcon /> */}
-                {/* <Headset /> */}
-                <SettingsIcon /> 
-            </div>
-        </div>
 
-    </div>
-  )
+        </div>
+    )
 }
 
 export default Sidebar

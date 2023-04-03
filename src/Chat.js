@@ -1,5 +1,7 @@
 import { AddCircle, CardGiftcard, EmojiEmotions, Gif } from '@mui/icons-material'
 import React, { useEffect, useState, useRef } from 'react'
+import "react-tooltip/dist/react-tooltip.css";
+import { Tooltip as ReactTooltip } from "react-tooltip";
 import { useSelector } from 'react-redux'
 import './Chat.css'
 import ChatHeader from './ChatHeader'
@@ -129,6 +131,7 @@ function Chat() {
   console.log(channelName, channelType, messages)
 
   return (
+    <>
     <div className='chat'>
       <ChatHeader channelName={channelName} handleHideUsers={handleHideUsers} handleShowUsers={handleShowUsers} />
 
@@ -190,7 +193,7 @@ function Chat() {
         </form>
         <div className="chat__inputIcons">
           <CardGiftcard />
-          <label>
+          <label id="app-title">
             <input style={{ display: 'none' }} type='file' onChange={handleImageChange} />
             <AddCircle />
           </label>
@@ -205,6 +208,12 @@ function Chat() {
         </div>
       </div>
     </div>
+    <ReactTooltip
+        anchorId="app-title"
+        place="bottom"
+        content="Click to select a image"
+      />
+    </>
   )
 }
 

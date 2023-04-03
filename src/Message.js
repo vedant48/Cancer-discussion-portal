@@ -7,6 +7,8 @@ import { IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import db from "./firebase";
 import { selectChannelId } from "./features/appSlice";
+import "react-tooltip/dist/react-tooltip.css";
+import { Tooltip as ReactTooltip } from "react-tooltip";
 
 const Messages = ({ message, timestamp, imageUrl, messageUser, email, id }) => {
 

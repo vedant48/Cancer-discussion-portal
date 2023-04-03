@@ -9,10 +9,13 @@ import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import { IconButton } from "@mui/material";
 import HelpIcon from '@mui/icons-material/Help';
 import db, { auth } from './firebase';
+import "react-tooltip/dist/react-tooltip.css";
+import { Tooltip as ReactTooltip } from "react-tooltip";
 
 function ChatHeader({ channelName, handleHideUsers, handleShowUsers }) {
   
   return (
+    <>
     <div className='chatHeader'>
       <div className="chatHeader__left">
         <h3><span className='chatHeader__hash'>#</span>{channelName}</h3>
@@ -23,7 +26,7 @@ function ChatHeader({ channelName, handleHideUsers, handleShowUsers }) {
       <div className="chatHeader__right">
         <NotificationsIcon />
         {/* <EditLocationIcon /> */}
-        <PeopleAltIcon
+        <PeopleAltIcon id="app-title1"
           onDoubleClick={handleShowUsers}
           onClick={handleHideUsers}
         />
@@ -33,12 +36,28 @@ function ChatHeader({ channelName, handleHideUsers, handleShowUsers }) {
         </div> */}
 
         {/* <SendIcon /> */}
-        {/* <HelpIcon /> */}
-        <IconButton style={{ color: "#808080" }} onClick={() => auth.signOut()}>
+        <HelpIcon id="app-title4" />
+        <ReactTooltip
+        anchorId="app-title4"
+        place="bottom"
+        content="Double click on message to delete"
+      />
+        <IconButton id="app-title2" style={{ color: "#808080" }} onClick={() => auth.signOut()}>
           <ExitToAppIcon className="chatHeader__ExitAppIcon" />
         </IconButton>
       </div>
     </div>
+    <ReactTooltip
+        anchorId="app-title1"
+        place="bottom"
+        content="Double click to show users and single click to hide"
+      />
+      <ReactTooltip
+        anchorId="app-title2"
+        place="bottom"
+        content="Wanna logout?"
+      />
+    </>
   )
 }
 
