@@ -42,9 +42,7 @@ function ChatHeader({ channelName, handleHideUsers, handleShowUsers }) {
         place="bottom"
         content="Double click on message to delete"
       />
-        <IconButton id="app-title2" style={{ color: "#808080" }} onClick={() => auth.signOut()}>
-          <ExitToAppIcon className="chatHeader__ExitAppIcon" />
-        </IconButton>
+          <ExitToAppIcon className="chatHeader__ExitAppIcon" id="app-title2" style={{ color: "#808080" }} onClick={() => auth.signOut()} />
       </div>
     </div>
     <ReactTooltip
