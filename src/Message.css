@@ -28,3 +28,19 @@
     cursor: pointer;
     color: red;
 }
+
+@media only screen and (max-width: 700px) {
+    .message__info img {
+        width: 225px;
+    }
+
+    .chatHeader__usersModel {
+        width: -moz-fit-content;
+        width: fit-content;
+        max-height: 210px;
+        overflow-y: scroll;
+        position: relative;
+        right: -25px;
+        top: 0px;
+    }
+  }
