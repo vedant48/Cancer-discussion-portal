@@ -94,12 +94,48 @@
     max-height: 210px;
     overflow-y: scroll;
   }
+
+  .Modal {
+    background-color: #838689; 
+    color: white;
+    width: 500px;
+    height: 500px;
+    margin-top: 50px;
+    margin-left: 250px;
+    padding: 50px;
+    border-radius: 20px;
+    overflow-y: scroll
+  }
+  .personalMsg {
+    position: fixed;
+    bottom: 100px;
+    display: flex;
+    justify-content: space-between;
+    color:white
+  }
   
 
   @media only screen and (max-width: 700px) {
     .chat {
       flex: auto;
       height: 90vh;
+    }
+    .Modal {
+      color: white;
+      width: 400px;
+      height: 500px;
+      margin-top: 50px;
+      margin-left: 20px;
+      padding: 20px;
+      border-radius: 20px;
+      overflow-y: scroll
+    }
+    .personalMsg {
+      position: fixed;
+      bottom: 150px;
+      display: flex;
+      justify-content: space-between;
+      color:white
     }
   }
   

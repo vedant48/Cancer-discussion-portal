@@ -103,7 +103,7 @@
     .sidebar__voice, .sidebar__profile  {
         border-top: none;
         flex-direction: column;
-        width: 128px;
+        width: 180px;
         text-align: right;
         align-items: flex-end;
         padding: 5px 5px 0 0;
